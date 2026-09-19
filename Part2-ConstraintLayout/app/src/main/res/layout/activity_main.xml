@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- ============================================================
+     Root layout: ConstraintLayout
+     Purpose: position every child view using constraints
+              instead of nested layouts
+     ============================================================ -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,6 +13,8 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
+    <!-- ========== Section 1: top title bar "Lab 1" ==========
+         Constraints: top to parent top, start/end to parent -->
     <TextView
         android:id="@+id/tvLab"
         android:layout_width="0dp"
@@ -20,6 +28,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- ========== Section 2: white area "Responsive Layout 1" ==========
+         Constraints: top to tvLab bottom, bottom to rowColors top,
+                      start/end to parent
+         Height: 25% of the parent using percent mode -->
     <TextView
         android:id="@+id/tvResponsive"
         android:layout_width="0dp"
@@ -36,6 +48,10 @@
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.25" />
 
+    <!-- ========== Section 3: row of four color blocks ==========
+         Inner ConstraintLayout holds the 4 color blocks.
+         Constraints: between tvResponsive and tvAndroid
+         Height: 12% of the parent -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rowColors"
         android:layout_width="0dp"
@@ -47,6 +63,8 @@
         app:layout_constraintHeight_default="percent"
         app:layout_constraintHeight_percent="0.12">
 
+        <!-- Block 1: red "This"
+             Start to parent, end to tvIs, horizontal weight=1 -->
         <TextView
             android:id="@+id/tvThis"
             android:layout_width="0dp"
@@ -59,6 +77,8 @@
             app:layout_constraintEnd_toStartOf="@id/tvIs"
             app:layout_constraintHorizontal_weight="1" />
 
+        <!-- Block 2: blue "is"
+             Start to tvThis, end to tvMy, weight=1 -->
         <TextView
             android:id="@+id/tvIs"
             android:layout_width="0dp"
@@ -71,6 +91,8 @@
             app:layout_constraintEnd_toStartOf="@id/tvMy"
             app:layout_constraintHorizontal_weight="1" />
 
+        <!-- Block 3: purple "my"
+             Start to tvIs, end to tvFirst, weight=1 -->
         <TextView
             android:id="@+id/tvMy"
             android:layout_width="0dp"
@@ -83,6 +105,8 @@
             app:layout_constraintEnd_toStartOf="@id/tvFirst"
             app:layout_constraintHorizontal_weight="1" />
 
+        <!-- Block 4: yellow "first"
+             Start to tvMy, end to parent, weight=1 -->
         <TextView
             android:id="@+id/tvFirst"
             android:layout_width="0dp"
@@ -96,6 +120,9 @@
             app:layout_constraintHorizontal_weight="1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- ========== Section 4: black area "Android Application" ==========
+         Constraints: top to rowColors bottom, bottom to rowButtons top
+         Together with Sections 2 and 3 it fills all remaining space -->
     <TextView
         android:id="@+id/tvAndroid"
         android:layout_width="0dp"
@@ -109,6 +136,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- ========== Section 5: bottom button bar ==========
+         Inner ConstraintLayout holding two buttons,
+         anchored to the bottom of the parent -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rowButtons"
         android:layout_width="0dp"
@@ -118,6 +148,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Button 1: Change
+             Start to parent, end to btnCancel, horizontal weight=1.
+             Top/Bottom constraints to parent avoid the
+             "not constrained vertically" warning. -->
         <Button
             android:id="@+id/btnChange"
             android:layout_width="0dp"
@@ -132,6 +166,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_weight="1" />
 
+        <!-- Button 2: Cancel
+             Start to btnChange, end to parent, horizontal weight=1 -->
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="0dp"
