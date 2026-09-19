@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ============================================================
+     Root layout: vertical LinearLayout
+     Purpose: divides the whole screen into 5 horizontal sections
+     ============================================================ -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <!-- ========== Section 1: top title bar "Lab 1" ==========
+         Height wraps content, black background, white text centered -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Lab 1"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <!-- ========== Section 2: white area "Responsive Layout 1" ==========
+         Height 0dp + weight=2, takes 2 shares of the remaining space
+         White background, black text centered -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:text="Responsive Layout 1"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <!-- ========== Section 3: row of four color blocks ==========
+         Horizontal LinearLayout, height 0dp + weight=1, takes 1 share
+         Each TextView inside also uses weight=1 to split the width evenly -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- Block 1: red "This" -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="#FF0000"
+            android:text="This"
+            android:textColor="#FFFFFF" />
+
+        <!-- Block 2: blue "is" -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="#0000FF"
+            android:text="is"
+            android:textColor="#FFFFFF" />
+
+        <!-- Block 3: purple "my" -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="#7E57C2"
+            android:text="my"
+            android:textColor="#FFFFFF" />
+
+        <!-- Block 4: yellow "first" -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="#FFFF00"
+            android:text="first"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- ========== Section 4: black area "Android Application" ==========
+         Height 0dp + weight=3, takes 3 shares (the largest block) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Android Application"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <!-- ========== Section 5: bottom button bar ==========
+         Horizontal LinearLayout containing two buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Button 1: Change, weight=1 takes half the width -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#7E57C2"
+            android:text="Change"
+            android:textColor="#FFFFFF" />
+
+        <!-- Button 2: Cancel, weight=1 takes half the width -->
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#7E57C2"
+            android:text="Cancel"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>
